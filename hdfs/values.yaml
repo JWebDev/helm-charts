@@ -40,10 +40,10 @@ persistence:
     enabled: true
     storageClass: "hdfs-name-node-sc"
     accessMode: ReadWriteOnce
-    size: 50Gi
+    size: 75Gi
 
   dataNode:
     enabled: true
     storageClass: "hdfs-data-node-sc"
     accessMode: ReadWriteOnce
-    size: 200Gi
+    size: 350Gi
