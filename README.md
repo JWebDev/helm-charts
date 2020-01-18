@@ -12,7 +12,7 @@ $ git push
 
 ## How to use this chart repo
 ```sh
-$ helm repo add baikal 'https://telefonica.github.io/helm-charts/'
+$ helm repo add jdev 'https://github.com/JWebDev/helm-charts/'
 $ helm repo update
 $ helm search <your-chart-name>
 ```
