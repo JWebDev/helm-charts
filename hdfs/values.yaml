@@ -1,10 +1,10 @@
 # The base hadoop image to use for all components.
 # See this repo for image build details: https://github.com/Comcast/kube-yarn/tree/master/image
-image: danisla/hadoop:2.7.3
+image: danisla/hadoop:2.9.0
 imagePullPolicy: IfNotPresent
 
 # The version of the hadoop libraries being used in the image.
-hadoopVersion: 2.7.3
+hadoopVersion: 2.9.0
 
 # Select antiAffinity as either hard or soft, default is soft
 antiAffinity: "soft"
@@ -37,13 +37,13 @@ hdfs:
 
 persistence:
   nameNode:
-    enabled: false
-    storageClass: "-"
+    enabled: true
+    storageClass: "hdfs-name-node-sc"
     accessMode: ReadWriteOnce
     size: 50Gi
 
   dataNode:
-    enabled: false
-    storageClass: "-"
+    enabled: true
+    storageClass: "hdfs-data-node-sc"
     accessMode: ReadWriteOnce
     size: 200Gi
