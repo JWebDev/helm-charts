@@ -13,6 +13,9 @@ metadata:
 spec:
   serviceName: {{ template "hadoop.fullname" . }}-hdfs-dn
   replicas: {{ .Values.hdfs.dataNode.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "hadoop.name" . }}
   template:
     metadata:
       labels:
