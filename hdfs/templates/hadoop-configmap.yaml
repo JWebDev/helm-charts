@@ -90,7 +90,7 @@ data:
 
       <property>
         <name>dfs.datanode.data.dir</name>
-        <value>file:///</value>
+        <value>file:///datanode</value>
         <description>DataNode directory</description>
       </property>
     
