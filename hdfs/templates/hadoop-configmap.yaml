@@ -4,7 +4,7 @@ metadata:
   name: {{ template "hadoop.fullname" . }}
   labels:
     app: {{ template "hadoop.name" . }}
-    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    chart: {{ .Chart.Name }}- {{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 data:
@@ -64,7 +64,7 @@ data:
     <configuration>
       <property>
             <name>fs.defaultFS</name>
-            <value>hdfs://{{ template "hadoop.fullname" . }}-hdfs-nn:9000/</value>
+            <value>hdfs://hdfs-hdfs-hdfs-nn.spark:9000/</value>
             <description>NameNode URI</description>
         </property>
     </configuration>
@@ -90,13 +90,18 @@ data:
 
       <property>
         <name>dfs.datanode.data.dir</name>
-        <value>file:///root/hdfs/datanode</value>
+        <value>file:///</value>
         <description>DataNode directory</description>
+      </property>
+    
+      <property>
+        <name>dfs.permissions.enabled</name>
+        <value>false</value>
       </property>
 
       <property>
         <name>dfs.namenode.name.dir</name>
-        <value>file:///root/hdfs/namenode</value>
+        <value>file:///namenode</value>
         <description>NameNode directory for namespace and transaction logs storage.</description>
       </property>
 
@@ -115,7 +120,7 @@ data:
         <value>0.0.0.0</value>
       </property>
       <!-- /Bind to all interfaces -->
-      
+
     </configuration>
 
   slaves: |
