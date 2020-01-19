@@ -12,10 +12,7 @@ metadata:
     component: hdfs-dn
 spec:
   serviceName: {{ template "hadoop.fullname" . }}-hdfs-dn
-  replicas: {{ .Values.hdfs.dataNode.replicas }}
-  selector:
-    matchLabels:
-      app: {{ template "hadoop.name" . }}
+  replicas: 1
   template:
     metadata:
       labels:
