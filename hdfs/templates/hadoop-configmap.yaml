@@ -35,9 +35,6 @@ data:
     if [[ "${HOSTNAME}" =~ "hdfs-nn" ]]; then
       mkdir -p /root/hdfs/namenode
       $HADOOP_PREFIX/bin/hdfs namenode -format -force -nonInteractive -clusterId clusterID=CID-deb90e88-01b2-47a4-a9f6-e69cf9564e87
-      $HADOOP_PREFIX/bin/hdfs dfs -mkdir /spark-logs
-      $HADOOP_PREFIX/bin/hdfs dfs -mkdir /jars
-      $HADOOP_PREFIX/bin/hdfs dfs -mkdir /tmp
       $HADOOP_PREFIX/sbin/hadoop-daemon.sh start namenode
     fi
 
@@ -49,6 +46,10 @@ data:
       [[ $? -ne 0 ]] && echo "Timeout waiting for hdfs-nn, exiting." && exit 1
 
       $HADOOP_PREFIX/sbin/hadoop-daemon.sh start datanode
+    
+      $HADOOP_PREFIX/bin/hdfs dfs -mkdir /spark-logs
+      $HADOOP_PREFIX/bin/hdfs dfs -mkdir /jars
+      $HADOOP_PREFIX/bin/hdfs dfs -mkdir /tmp
     fi
 
     if [[ $1 == "-d" ]]; then
