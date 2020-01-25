@@ -1,1 +1,15 @@
-# Created by .ignore support plugin (hsz.mobi)
+### Intellij ###
+# INFO to remove cached .idea files, run from terminal git rm --cached -r .idea
+
+*.iml
+
+## Directory-based project format:
+.idea/
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
